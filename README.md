@@ -1,2 +1,2 @@
 # movies_project
-A-tech course project
+A-tech course project.
