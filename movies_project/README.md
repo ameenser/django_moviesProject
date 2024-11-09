@@ -4,3 +4,7 @@ Users can browse movies, submit reviews, and rate them on the platform.
 
 This guide will walk you through the process of setting up and running the project using Docker.
 
+
+clone the project and run :
+    cd movies_project
+    docker compose up --build
