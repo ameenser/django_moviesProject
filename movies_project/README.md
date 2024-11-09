@@ -6,5 +6,5 @@ This guide will walk you through the process of setting up and running the proje
 
 
 clone the project and run :
-    cd movies_project
+    cd movies_project,
     docker compose up --build
