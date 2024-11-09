@@ -75,12 +75,27 @@ WSGI_APPLICATION = 'movies_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.getenv('DATABASE_NAME', 'movies_db'),  # Default to 'movies_db'
+#         'USER': os.getenv('DATABASE_USER', 'user'),  # Default to 'user'
+#         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'user_password'),  # Default to 'user_password'
+#         'HOST': os.getenv('DATABASE_HOST', 'db'),  # Default to 'db'
+#         'PORT': os.getenv('DATABASE_PORT', '3306'),  # Default to '3306'
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, 'db.sqlite3')),
+        "USER": os.environ.get("SQL_USER", "myuser"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "myuserpassword"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "PORT": os.environ.get("SQL_PORT", "3306"),
     }
 }
+
 
 
 # Password validation
@@ -111,7 +126,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
